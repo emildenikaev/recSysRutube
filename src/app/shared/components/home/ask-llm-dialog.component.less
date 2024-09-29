@@ -1,0 +1,238 @@
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  width: 600px;
+  padding-bottom: 0;
+  height: 500px; /* или любое другое значение по вашему усмотрению */
+}
+
+.chat-window {
+  overflow-y: auto;
+  flex-grow: 1;
+  padding: 10px;
+  border: 1px solid rgba(218, 218, 218, 0.95);
+  border-radius: 4px;
+  background-color: rgba(218, 218, 218, 0.95);
+}
+
+.user {
+  text-align: right;
+  margin: 5px 0;
+  max-width: 500px;
+
+}
+
+.bot {
+  text-align: left;
+  margin: 5px 0;
+  color: black;
+  font-size: 14px;
+
+  width: 500px;
+  word-spacing: normal;
+  line-height: 1.4;
+  background-color: #E1E5EA;
+  border-radius: 6px;
+  padding: 4px 8px;
+}
+
+
+.search-bar {
+  flex-grow: 1;
+  margin-right: 10px;
+}
+
+
+.message {
+  color: black;
+  font-size: 14px;
+  background-color: #E1E5EA;
+  border-radius: 6px;
+
+  word-spacing: normal;
+  line-height: 1.4;
+  padding: 4px 8px;
+  
+}
+
+
+.search-bar {
+  padding: 10px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  width: 560px;
+  outline: none;
+  cursor: text;
+  color: black;
+  background-color: transparent;
+}
+
+.search-light {
+  background-color: #ffffff;
+  border-color: #E1E5EA;
+}
+h1 {
+  margin: 0;
+}
+
+
+.search-container {
+  position: relative;
+  margin-top: 10px;
+}
+
+.search-bar {
+  padding-right: 40px;
+  width: 100%;
+}
+
+.search-bar:focus {
+  outline: none;
+}
+
+.search-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  pointer-events: none;
+  z-index: 2;
+  cursor: pointer;
+}
+
+.cancel {
+  justify-content: flex-end;
+  display: flex;
+}
+
+.chat-window {
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  flex-grow: 1;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 4px;
+  background-color: rgba(218, 218, 218, 0.95);
+}
+
+.message {
+  color: black;
+  font-size: 14px;
+  border-radius: 6px;
+  word-spacing: normal;
+  line-height: 1.4;
+  padding: 4px 8px;
+  max-width: 400px;
+  margin: 5px 0;
+}
+
+/* отдельный стиль для сообщений от пользователя */
+.user {
+  align-self: flex-end; /* располагаем сообщение пользователя справа */
+}
+
+/* оставляем стиль для понятий бота */
+.bot {
+  align-self: flex-start; /* располагаем сообщение бота слева */
+  background-color: #E1E5EA;
+}
+
+::ng-deep {
+  .mat-mdc-dialog-container .mdc-dialog__surface {
+    background-color: #375132;
+    border-radius: 6px;
+  }
+}
+
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%; /* Заменено с фиксированной ширины */
+  max-width: 600px;
+  padding-bottom: 0;
+  height: 80vh; /* высота по желанию, чтобы окна чата использовали большую часть экрана */
+}
+
+.chat-window {
+  overflow-y: auto;
+  flex-grow: 1;
+  padding: 10px;
+  border: 1px solid rgba(218, 218, 218, 0.95);
+  border-radius: 4px;
+  background-color: rgba(218, 218, 218, 0.95);
+  margin-bottom: 10px; /* отступ от нижнего поля */
+}
+
+.user {
+  text-align: right;
+  margin: 5px 0;
+  max-width: 80%; /* Ограничение ширины для мобильных */
+}
+
+.bot {
+  text-align: left;
+  margin: 5px 0;
+  color: black;
+  font-size: 14px;
+  width: 80%; /* Ограничение ширины для мобильных */
+  word-spacing: normal;
+  line-height: 1.4;
+  background-color: #E1E5EA;
+  border-radius: 6px;
+  padding: 4px 8px;
+}
+
+.search-container {
+  position: relative;
+  margin-top: 10px;
+  width: 100%; /* Заменено на полную ширину */
+}
+
+.search-bar {
+  flex-grow: 1;
+  padding: 10px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  width: 100%; /* Полная ширина */
+  outline: none;
+  cursor: text;
+  color: black;
+  background-color: #ffffff; /* Заменено на белый */
+  border-color: #E1E5EA; /* Поля с цветом */
+}
+
+.cancel {
+  justify-content: flex-end;
+  display: flex;
+}
+
+h1 {
+  margin: 0;
+}
+
+/* Адаптивные стили */
+@media (max-width: 600px) {
+  .chat-container {
+    width: 95%; /* Ширина контейнера для мобильных */
+  }
+
+  .search-bar {
+    width: 100%; /* Полная ширина на мобильных */
+  }
+
+  .user,
+  .bot {
+    max-width: 100%; /* Сообщения могут занимать всю ширину на мобильных */
+  }
+
+  .chat-window {
+    padding: 5px; /* Меньше отступов на мобильных */
+  }
+
+  .message {
+    max-width: 100%; /* Сообщения могут занимать всю ширину на мобильных */
+  }
+}

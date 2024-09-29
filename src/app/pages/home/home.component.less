@@ -1,0 +1,335 @@
+html {
+    font-size: 14px;
+}
+
+body {
+    font-family: var(--font-family);
+    font-weight: normal;
+    background: transparent;
+    color: var(--text-color);
+    padding: 1rem;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.card-carousel {
+    background: transparent;
+    padding: 16px;
+    border-radius: 10px;
+    margin-top: 12px;
+    margin-bottom: 24px;
+}
+
+.title {
+    font-size: 36px;
+}
+
+.dislike {
+    transform: rotate(180deg);
+}
+
+
+.theme-toggle {
+    margin-right: 15px;
+}
+
+.btn {
+    cursor: pointer;
+    background: transparent;
+    border: none;
+}
+
+
+.movie-container {
+    margin-bottom: 20px;
+}
+
+.image-wrapper {
+    width: 300px;
+    height: 168px;
+    border-radius: 6px;
+    overflow: hidden;
+    position: relative;
+}
+
+.movie-image {
+    width: 100%;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+}
+
+.product-title {
+    margin-top: 4px;
+    margin-bottom: 4px;
+    font-size: 16px;
+}
+
+.click {
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+
+.product-title {
+    margin-top: 4px;
+    font-size: 20px;
+    width: 290px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-height: 40px;
+    -webkit-line-clamp: 2;
+}
+
+.product-description {
+    text-align: justify;
+    width: 300px;
+    height: 168px; //207
+    overflow-y: scroll;
+    border-radius: 6px;
+    margin-bottom: 10px;
+
+    color: black;
+    background-color: rgba(218, 218, 218, 0.95);
+    border-radius: 6px;
+    padding: 4px 12px;
+}
+
+/* Мобильная адаптация */
+@media (max-width: 768px) {
+    .title {
+        font-size: 28px;
+    }
+
+    .card-carousel {
+        padding: 8px;
+    }
+
+    .image-wrapper {
+        width: 100%;
+        height: 150px;
+    }
+
+    .movie-image {
+        height: 100%;
+    }
+
+    .product-title {
+        font-size: 14px;
+        margin-top: 2px;
+        margin-bottom: 4px;
+    }
+
+    .theme-toggle {
+        margin-right: 10px;
+    }
+
+    .click {
+        margin-right: 10px;
+    }
+
+    .btn {
+        padding: 8px;
+    }
+
+    .flex {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+::ng-deep {
+    .p-carousel-item {
+        max-width: 100%;
+    }
+}
+
+.section-home {
+    max-width: 1750px;
+}
+
+.spinner-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.loader {
+    width: 60px;
+    height: 60px;
+    border: 5px solid #0275ff;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.settings {
+    margin-top: 12px;
+}
+
+
+
+.gallery_item {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    width: 300px;
+    border-radius: 6px;
+    height: 168px;
+    z-index: 10000;
+}
+
+.text {
+    opacity: 0;
+    position: absolute;
+    color: black;
+    left: 0;
+    bottom: 0;
+    padding: 10px 0;
+    text-align: center;
+    width: 300px;
+    border-radius: 6px;
+    height: 168px;
+    overflow-y: scroll;
+    padding: 4px 12px;
+    text-align: justify;
+    background: rgba(218, 218, 218, 0.95);
+}
+
+.gallery_item:hover .text {
+    opacity: 1;
+    transition: all 0.6s;
+}
+
+.movie-grid {
+    display: flex; 
+    flex-wrap: wrap;  /* Позволяем элементам переходить на новую строку */
+    justify-content: center;  /* Центрируем все элементы по горизонтали */
+    align-items: flex-start;  /* Выравниваем элементы по верхнему краю */
+    gap: 24px;  /* Расстояние между элементами */
+}
+
+/* Установите ширину элементов, чтобы они загружались правильно */
+.movie-item {
+    box-sizing: border-box;  /* Учитываем padding и border в ширине */
+    margin-bottom: 20px; /* Расстояние между строками */
+}
+
+
+@media (max-width: 1500px) {
+    .movie-item {
+        flex: 0 1 calc(20% - 16px); /* 4 элемента в ряд */
+    }
+}
+
+@media (max-width: 1200px) {
+    .movie-item {
+        flex: 0 1 calc(25% - 16px); /* 4 элемента в ряд */
+    }
+}
+
+@media (max-width: 900px) {
+    .movie-item {
+        flex: 0 1 calc(33.33% - 16px); /* 3 элемента в ряд */
+    }
+}
+
+@media (max-width: 600px) {
+    .movie-item {
+        flex: 0 1 calc(50% - 16px); /* 2 элемента в ряд */
+    }
+}
+
+@media (max-width: 400px) {
+    .movie-item {
+        flex: 0 1 100%; /* 1 элемент в ряд */
+    }
+}
+// .movie-item {
+//     flex: 1 1 calc(20% - 16px);
+//     /* Это будет 4 элемента в ряд на больших экранах */
+//     max-width: calc(20% - 16px);
+//     /* Максимальная ширина элемента */
+//     box-sizing: border-box;
+//     /* Чтобы padding не увеличивал ширину */
+// }
+
+// @media (max-width: 1500px) {
+//     .movie-item {
+//         flex: 1 1 calc(25% - 16px);
+//         /* Это будет 4 элемента в ряд на больших экранах */
+//         max-width: calc(25% - 16px);
+//         /* Максимальная ширина элемента */
+//     }
+// }
+
+
+// @media (max-width: 1200px) {
+//     .movie-item {
+//         flex: 1 1 calc(33.33% - 16px);
+//         /* 3 элемента в ряд для экранов меньше 1200px */
+//         max-width: calc(33.33% - 16px);
+//     }
+// }
+
+// @media (max-width: 900px) {
+//     .movie-item {
+//         flex: 1 1 calc(50% - 16px);
+//         /* 2 элемента в ряд для экранов меньше 900px */
+//         max-width: calc(50% - 16px);
+//     }
+// }
+
+// @media (max-width: 600px) {
+//     .movie-item {
+//         flex: 1 1 100%;
+//         /* 1 элемент в ряд для экранов меньше 600px */
+//         max-width: 100%;
+//     }
+// }
+
+hr {
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.container-end {
+    margin-top: 40px;
+    font-weight: 100;
+    font-size: 32px;
+    margin-left: 40px;
+    line-height: 1;
+    background-color: white;
+    padding: 20px;
+    border-radius: 16px;
+}
+
+.end-text {
+    color: #0275ff;
+    cursor: pointer;
+}
+
+
+
+
+.car {
+    display: flex;
+}

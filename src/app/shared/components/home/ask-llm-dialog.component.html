@@ -1,0 +1,18 @@
+<h1 mat-dialog-title>Спросить Rutube AI</h1> 
+<div mat-dialog-content class="chat-container"> 
+    <div class="chat-window"> 
+      <div *ngFor="let message of chatMessages" [class.user]="message.type === 'user'" [class.bot]="message.type === 'bot'" class="message">
+        <span  [class.user]="message.type === 'user-text'" [class.bot]="message.type === 'bot-text'" class="message-text" [innerHTML]="formatMessage(message.text)"> 
+        </span>
+        
+      </div> 
+    </div> 
+    <div class="search-container">
+      <input type="text" placeholder="Введите ваш запрос..." class="search-bar search-light" [(ngModel)]="searchTerm" (keydown.enter)="onSearch()"/> 
+
+      <button mat-button (click)="onSearch()">Отправить</button>
+    </div>
+</div> 
+<div mat-dialog-actions class="cancel"> 
+  <button mat-button (click)="onCancel()">Закрыть</button> 
+</div>

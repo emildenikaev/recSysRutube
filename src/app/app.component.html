@@ -1,0 +1,71 @@
+<ng-container>
+  <header [ngClass]="{'light': !enabled, 'dark': enabled}" class="header">
+    <div class="header-section">
+      <div class="header-item">
+        <a href="" class="logo" [ngClass]="enabled ? 'link-light' : 'link-dark'">ZumBumTube</a>
+      </div>
+      <div class="cont">
+        <div>
+          <div class="search-container" (click)="onSearch()">
+            <input type="text" placeholder="Поиск..." class="search-bar" [(ngModel)]="searchTerm"
+              (keydown.enter)="onSearch()" (click)="$event.stopPropagation()"
+              [ngClass]="enabled ? 'search-light' : 'search-dark'" />
+            <img [src]="enabled ? './assets/img/menu/search-dark.svg' : './assets/img/menu/search-light.svg'"
+              alt="Search" class="search-icon" />
+          </div>
+          <div class="btn-f-cont">
+            <button *ngIf="clicksCount < 20" class="btn-f btn-blue  btn-f-l blue" (click)="resetRecs()">Обновить
+              рекомендации</button>
+            <button class="btn-f btn-blue blue" (click)="resetHistory()">Сбросить историю кликов</button>
+          </div>
+        </div>
+        <button class="btn-f btn-blue" (click)="askLLM()">Спросить Rutube AI</button>
+      </div>
+      <div class="container">
+        <div class="btns-contnainer">
+          <!-- <div class="button-container">
+            <button (click)="resetHistory()" class="btn theme-toggle"
+              [ngClass]="enabled ? 'btn-light-theme' : 'btn-dark-theme'"
+              (mouseenter)="showTooltip('Сбросить историю кликов и поиска', 0)" (mouseleave)="hideTooltip()">
+              <img [src]="enabled ? './assets/img/menu/remove-light.svg' : './assets/img/menu/remove-dark.svg'"
+                alt="Switch Theme" class="theme-icon" />
+            </button>
+            <p class="tooltip" *ngIf="tooltipVisible[0]">{{ tooltipText[0] }}</p>
+          </div>
+
+          <div class="button-container">
+            <button (click)="resetRecs()" class="btn theme-toggle"
+              [ngClass]="enabled ? 'btn-light-theme' : 'btn-dark-theme'"
+              (mouseenter)="showTooltip('Обновить рекомендации', 1)" (mouseleave)="hideTooltip()">
+              <img [src]="enabled ? './assets/img/menu/refresh-light.svg' : './assets/img/menu/refresh-dark.svg'"
+                alt="Switch Theme" class="theme-icon reload" />
+            </button>
+            <p class="tooltip" *ngIf="tooltipVisible[1]">{{ tooltipText[1] }}</p>
+          </div> -->
+          <div class="button-container">
+            <button (click)="changeTheme()" class="btn theme-toggle"
+              [ngClass]="enabled ? 'btn-light-theme' : 'btn-dark-theme'" (mouseenter)="showTooltip('Сменить тему', 2)"
+              (mouseleave)="hideTooltip()">
+              <img [src]="enabled ? './assets/img/light.svg' : './assets/img/dark.svg'" alt="Switch Theme"
+                class="theme-icon" />
+            </button>
+            <p class="tooltip" *ngIf="tooltipVisible[2]">{{ tooltipText[2] }}</p>
+
+            <div class="cont-count">
+              <button class="btn-f btn-blue blue" (click)="exportUserHistory()">Выгрузить историю</button>
+              <div class="clicks-count">Количество кликов: <span class="clicks-count-number">{{ clicksCount }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </header>
+
+  <div class="layout">
+    <section class="content" [ngClass]="{'content-light': !enabled, 'content-dark': enabled}">
+      <router-outlet></router-outlet>
+    </section>
+  </div>
+</ng-container>
